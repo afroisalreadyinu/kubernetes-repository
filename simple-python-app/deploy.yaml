@@ -2,7 +2,6 @@ apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
   name: simple-python-app
-  namespace: twyla
 spec:
   replicas: 1
   template:
@@ -11,6 +10,6 @@ spec:
         app: simple-python-app
     spec:
       containers:
-      - image: twyla.io/simple-python-app:0.0.1
-        imagePullPolicy: Never
-        name: ??
+        - image: twyla.io/simple-python-app:v0.0.1
+          imagePullPolicy: IfNotPresent
+          name: simple-python-app
