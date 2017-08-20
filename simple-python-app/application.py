@@ -4,6 +4,6 @@ app = Flask('docker-application')
 
 @app.route("/")
 def index():
-    return jsonify('Hello from the dockerized app')
+    return 'Hello from the dockerized app'
 
-app.run(port=6001)
+app.run(host='0.0.0.0', port=8080)
