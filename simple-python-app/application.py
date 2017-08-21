@@ -1,4 +1,5 @@
 import os
+import psutil
 from flask import Flask
 
 app = Flask('docker-application')
@@ -7,8 +8,5 @@ app = Flask('docker-application')
 def index():
     return 'Hello from the dockerized app'
 
-@app.route("/die")
-def die():
-    os.kill(os.pid())
 
 app.run(host='0.0.0.0', port=8080)
