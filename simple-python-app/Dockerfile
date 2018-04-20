@@ -1,8 +1,4 @@
-FROM ubuntu:16.04
-
-RUN apt update
-RUN apt install -y python3 python3-pip
-RUN pip3 install --upgrade pip
+FROM python:3-alpine3.7
 
 ADD application.py /application.py
 
