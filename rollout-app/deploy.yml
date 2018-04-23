@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: rollout-app
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: rollout-app
+    spec:
+      containers:
+        - image: kubetutorial/rollout-app:v0.0.1
+          imagePullPolicy: IfNotPresent
+          name: rollout-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: rollout-app
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: rollout-app
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: rollout-app-ingress
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+  - host: rollout-app
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: rollout-app
+          servicePort: 8080

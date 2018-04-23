@@ -1,6 +1,6 @@
 from flask import Flask
 
-app = Flask('docker-application')
+app = Flask('simple-python-app')
 
 @app.route("/")
 def index():

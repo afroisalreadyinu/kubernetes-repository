@@ -2,7 +2,7 @@ import os
 import pprint
 from flask import Flask
 
-app = Flask('docker-application')
+app = Flask('env-printer-app')
 
 @app.route("/")
 def index():

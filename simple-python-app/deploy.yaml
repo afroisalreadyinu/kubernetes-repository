@@ -10,6 +10,6 @@ spec:
         app: simple-python-app
     spec:
       containers:
-        - image: twyla.io/simple-python-app:v0.0.1
+        - image: kubetutorial/simple-python-app:v0.0.1
           imagePullPolicy: IfNotPresent
           name: simple-python-app
