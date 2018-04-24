@@ -13,6 +13,10 @@ spec:
         - image: kubetutorial/rollout-app:v0.0.1
           imagePullPolicy: IfNotPresent
           name: rollout-app
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8080
 ---
 apiVersion: v1
 kind: Service
